@@ -62,7 +62,7 @@ create.html displays a form that allows a logged in user to create a post. A POS
 edit.html displays a form that allows a logged in user to edit a post. The form has information from the existing post that the user wishes to edit. A POST request is sent to "/edit/{{ post['post_id'] }}" when submitted. An error message is checked for, and is shown if an error occurs.
 
 SQL EXPLANATION:
-The script first connects to app.db. It then creates a table for posts if the table doesn't exist already. This was chosen instead of drop table if exists to ensure the db persists over time instead of being reset when ran. The table stores information on the post such as title or date.
+The script first connects to app.db. It then creates a table for posts if the table doesn't exist already. This was chosen instead of drop table if exists to ensure the db persists over time instead of being reset when ran. The table stores information on the post such as title or date. After the table is made, the changes are committed and the connection closed.
 
 
 
