@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Post</title>
+</head>
+<body>
+
+    <h1>Edit Post</h1>
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    
+    <form action="/edit/{{ post['post_id'] }}" method="post">
+
+        <input type="text" name="post_title" value="{{ post['post_title'] }}"></input>
+        <input type="text" name="post_author" value="{{ post['post_author'] }}"></input>
+        <input type="text" name="post_content"value="{{ post['post_content'] }}"></input>
+        <input type="submit" value="Edit Post"></input>
+
+    </form>
+</body>
+</html>
