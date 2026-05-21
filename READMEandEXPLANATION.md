@@ -1,7 +1,7 @@
 NOTE: The username and password are admin and password. You need to run appdb.py first and then run app.py.
 
 DESIGN CHOICES:
-There are some missing things that I'm aware of, such as the delete controller lacking try/except or the time zone not being EDT. I would have handled situations like these if there had been more time.  
+There are a few things that I'm aware of, such as the delete controller letting silent failures happen or the time zone not being EDT. I would have handled situations like these if there had been more time.  
 
 SOLUTION EXPLANATION:
 This solution is a single-account Flask app for blogging. Users can view posts on a dashboard, and after logging in, they can create, edit, or delete posts. Session checks are done to verify the user is logged in. 
