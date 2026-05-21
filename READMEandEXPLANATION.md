@@ -1,7 +1,7 @@
-NOTE: The username and password are admin and password. You need to run appdb.py first and then run app.py.
+NOTE: The username and password are admin and password. You need to run appdb.py first and then run app.py. I initually submitted on May 20th but then made some quick fixes on May 21st.
 
 DESIGN CHOICES:
-There are a few things that I'm aware of, such as the delete controller letting silent failures happen or the time zone not being EDT. I would have handled situations like these if there had been more time.  
+There are a few things that I'm aware of, such as the delete controller letting silent failures happen or the time zone not being EDT. I would have handled situations like these if there had been more time. I did make some quick corrections for my SQLite though.
 
 SOLUTION EXPLANATION:
 This solution is a single-account Flask app for blogging. Users can view posts on a dashboard, and after logging in, they can create, edit, or delete posts. Session checks are done to verify the user is logged in. 
@@ -53,7 +53,7 @@ The delete controller does a session check, and lets the user delete posts if th
 
 HTML EXPLANATION:
 
-dashboard_page.html shows all posts in a table. A Jinja loop is used for iterating through posts data and displays each post's information such as title or author, using dictionary-style access. Each post has an edit link that sends the post_id to load the edit form with the post's information in the form. The delete button for each post sends a POST request via form to delete posts.
+dashboard_page.html shows all posts in a table. A Jinja loop is used for iterating through posts data and displays each post's information such as title or author, using dictionary-style access. Each post has an edit link that passes the post_id to load the edit form with the post's information in the form. The delete button for each post sends a POST request via form to delete posts.
 
 login_form.html displays a form that allows a user to enter their credentials. A POST request is sent when submitted. It's checked if an error message exists, and the message is shown if an error occurs. 
 
@@ -62,7 +62,7 @@ create.html displays a form that allows a logged in user to create a post. A POS
 edit.html displays a form that allows a logged in user to edit a post. The form has information from the existing post that the user wishes to edit. A POST request is sent to "/edit/{{ post['post_id'] }}" when submitted. An error message is checked for, and is shown if an error occurs.
 
 SQL EXPLANATION:
-The script first connects to app.db. It then creates a table for posts if the table doesn't exist already. This was chosen instead of drop table if exists to ensure the db persists over time instead of being reset when ran. The table stores information on the post such as title or date. Two posts are inserted for testing purposes that I used to make sure the app behaves correctly. After the insertions, the script commits the changes and the connection is closed.
+The script first connects to app.db. It then creates a table for posts if the table doesn't exist already. This was chosen instead of drop table if exists to ensure the db persists over time instead of being reset when ran. The table stores information on the post such as title or date.
 
 
 

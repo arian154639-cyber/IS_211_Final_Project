@@ -13,15 +13,5 @@ post_content TEXT
 )
 """)
 
-cursor.execute("""
-    INSERT INTO posts (post_title, post_author, post_content)
-    VALUES (?, ?, ?)
-""", ("Introduction", "Wade Smith", "Welcome to my blog!"))
-
-cursor.execute("""
-    INSERT INTO posts (post_title, post_author, post_content)
-    VALUES (?, ?, ?)
-""", ("My Day", "Wade Smith", "Today's a great day!"))
-
 connection.commit()
 connection.close()
