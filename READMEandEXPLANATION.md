@@ -10,7 +10,7 @@ HOW THE SOLUTION WORKS:
 The solution works by using Flask routes to to handle various actions and pages. For example, when a user goes to the dashboard, data is pulled from the SQLite database and displayed via an HTML template. Forms are used for POST requests when a user is creating, editing, or deleting a post. Once the database is updated, the user is redirected to the dashboard.
 
 MODEL EXPLANATION:
-The solution uses a single table database called posts. All blg information is stored within this table. post_id is the primary key, while post_date is handled by the database and generated automatically. post_title, post_author, and post_content are entered by the user.
+The solution uses a single table database called posts. All blog information is stored within this table. post_id is the primary key, while post_date is handled by the database and generated automatically. post_title, post_author, and post_content are entered by the user.
 
 
 
@@ -18,12 +18,12 @@ PYTHON EXPLANATION:
 
 Database Connection:
 get_db() and close_connection handle the database connections. get_db() checks if a connection exists, if it doesn't then
-it makes one and keeps the connection stored in g for reuse. row_factory is used so that data can be accessed as if it were adictionary instead of tuples, it makes working on the app easier because now you don't need to use index-based accessing. close_connection() closes the connection after app context ends so that connections don't persist.
+it makes one and keeps the connection stored in g for reuse. row_factory is used so that data can be accessed as if it were a dictionary instead of tuples, it makes working on the app easier because now you don't need to use index-based accessing. close_connection() closes the connection after app context ends so that connections don't persist.
 
 
 
 Main Controller:
-The main controller, when the user visits the route URL, they are redirected to dashboard. 
+Theis is the main controller. When the user visits the route URL, they are redirected to dashboard. 
 
 
 
@@ -42,11 +42,11 @@ Logout lets the user sign out by removing the username from the session. They ar
 
 
 Create Controller:
-The create controller does a session check, and lets them create new posts if they are logged in. A logged out user will be redirected to the login form. When the form is submitted, a check is done to ensure that all fields are filled out. If the check is passed, the new post is inserted and committed to the database and appears on the dashboard, with the user being redirected there. If other errors happen, the form is displayed again with an error message. 
+The create controller does a session check, and lets them create new posts if they are logged in. A logged out user will be redirected to the login form. On a POST request, the form is submitted, a check is done to ensure that all fields are filled out. If the check is passed, the new post is inserted and committed to the database and appears on the dashboard, with the user being redirected there. If other errors happen, the form is displayed again with an error message. The GET request renders the form.
 
 
 Edit Controller:
-The edit controller does a session check, and lets the user edit posts if they are logged in. A logged out user will be redirected to the login form. Posts are retrieved via their ID. On a POST request, updated fields undergo validation similar to the create controller, then the database is updated if the check is passed. One detail to note is that edits also update the timestamp to when the post was edited. Once the changes are committed, the user is redirected to the dashboard where they can see the updated post. If other issues occur, the form is displayed again with an error message.
+The edit controller does a session check, and lets the user edit posts if they are logged in. A logged out user will be redirected to the login form. Posts are retrieved via their ID. On a POST request, updated fields undergo validation similar to the create controller, then the database is updated if the check is passed. One detail to note is that edits also update the timestamp to when the post was edited. Once the changes are committed, the user is redirected to the dashboard where they can see the updated post. If other issues occur, the form is displayed again with an error message. The GET request renders the form.
 
 Delete Controller:
 The delete controller does a session check, and lets the user delete posts if they are logged in. A logged out user will be redirected to the login form. It uses a POST request for deletion, posts are removed through their ID, then the change is committed and the user is redirected to the dashboard where they will see the post has been deleted. If something goes wrong, the user is still redirected to the dashboard instead of seeing an error message.
