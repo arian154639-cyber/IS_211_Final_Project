@@ -59,7 +59,7 @@ login_form.html displays a form that allows a user to enter their credentials. A
 
 create.html displays a form that allows a logged in user to create a post. A POST request is sent to "/create" when submitted. An error message is checked for, and is shown if an error occurs.
 
-edit.html displays a form that allows a logged in user to edit a post. The form has information from the existing post that the user wishes to edit. A POST request is sent to "/edit/<post_id>" when submitted. An error message is checked for, and is shown if an error occurs.
+edit.html displays a form that allows a logged in user to edit a post. The form has information from the existing post that the user wishes to edit. A POST request is sent to "/edit/{{ post['post_id'] }}" when submitted. An error message is checked for, and is shown if an error occurs.
 
 SQL EXPLANATION:
 The script first connects to app.db. It then creates a table for posts if the table doesn't exist already. This was chosen instead of drop table if exists to ensure the db persists over time instead of being reset when ran. The table stores information on the post such as title or date. Two posts are inserted for testing purposes that I used to make sure the app behaves correctly. After the insertions, the script commits the changes and the connection is closed.
