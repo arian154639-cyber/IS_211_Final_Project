@@ -1,13 +1,13 @@
-NOTE: The username and password are admin and password. You need to run appdb.py first and then run app.py. I initually submitted on May 20th but then made some quick fixes on May 21st.
+NOTE: The username and password are admin and password. You need to run appdb.py first and then run app.py. I submitted on May 20th but then made some quick fixes on May 21st.
 
 DESIGN CHOICES:
-There are a few things that I'm aware of, such as the delete controller letting silent failures happen or the time zone not being EDT. I would have handled situations like these if there had been more time. I did make some quick corrections for my SQLite though.
+There are a few things that I'm aware of, such as the delete controller letting silent failures happen or the time zone not being EDT. I would have handled situations like these if there had been more time. I did make some quick corrections for smaller issues though.
 
 SOLUTION EXPLANATION:
 This solution is a single-account Flask app for blogging. Users can view posts on a dashboard, and after logging in, they can create, edit, or delete posts. Session checks are done to verify the user is logged in. 
 
 HOW THE SOLUTION WORKS:
-The solution works by using Flask routes to to handle various actions and pages. For example, when a user goes to the dashboard, data is pulled from the SQLite database and displayed via an HTML template. Forms are used for POST requests when a user is creating, editing, or deleting a post. Once the database is updated, the user is redirected to the dashboard.
+The solution works by using Flask routes to handle various actions and pages. For example, when a user goes to the dashboard, data is pulled from the SQLite database and displayed via an HTML template. Forms are used for POST requests when a user is creating, editing, or deleting a post. Once the database is updated, the user is redirected to the dashboard.
 
 MODEL EXPLANATION:
 The solution uses a single table database called posts. All blog information is stored within this table. post_id is the primary key, while post_date is handled by the database and generated automatically. post_title, post_author, and post_content are entered by the user.
@@ -23,7 +23,7 @@ it makes one and keeps the connection stored in g for reuse. row_factory is used
 
 
 Main Controller:
-Theis is the main controller. When the user visits the route URL, they are redirected to dashboard. 
+This is the main controller. When the user visits the route URL, they are redirected to dashboard. 
 
 
 
