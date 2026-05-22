@@ -1,4 +1,4 @@
-NOTE TO PROFESSOR: The username and password are admin and password. You need to run appdb.py first and then run app.py. I submitted on May 20th but then made some quick fixes on May 21st. I wanted to include in an email that I've been pressed for time and under a lot pressure due to this being my last semester and from finals, so there are some issues in the code, as mentioned in the design choices section below. My apologies for the issues mentioned. The commit count is 10 because I missed a few things due to stress and later did some small fixes. Thank you for reading this.
+NOTE TO PROFESSOR: The username and password are admin and password. You need to run appdb.py first and then run app.py. I submitted on May 20th but then made some quick fixes on May 21st. I wanted to include in an email that I've been pressed for time and under a lot pressure due to this being my last semester and from finals, so there are some issues in the code, as mentioned in the design choices section below. My apologies for the issues mentioned. The commit count is 11 because I missed a few things due to stress and later did some small fixes. Thank you for reading this.
 
 DESIGN CHOICES:
 There are a few things that I'm aware of, such as the delete controller letting silent failures happen or the time zone not being EDT. I would have handled situations like these if there had been more time. I did make some quick corrections for smaller issues though.
@@ -53,7 +53,7 @@ The delete controller does a session check, and lets the user delete posts if th
 
 HTML EXPLANATION:
 
-dashboard_page.html shows all posts in a table. A Jinja loop is used for iterating through posts data and displays each post's information such as title or author, using dictionary-style access. Each post has an edit link that passes the post_id to load the edit form with the post's information in the form. The delete button for each post sends a POST request via form to delete posts.
+dashboard_page.html shows all posts in a table. A Jinja loop is used for iterating through posts data and displays each post's information such as title or author, using dictionary-style access. Each post has an edit link that passes the post_id to load the edit form with the post's information in the form. The delete button for each post sends a POST request via form to delete posts. An error message is checked for, and is displayed if something goes wrong.
 
 login_form.html displays a form that allows a user to enter their credentials. A POST request is sent when submitted. It's checked if an error message exists, and the message is shown if an error occurs. 
 
