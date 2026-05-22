@@ -18,6 +18,11 @@
     <p><a href="/create">Create Post</a></p>
 
     <h1>Dashboard</h1>
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
     <table>
         <tr>
             <td>ID</td>
