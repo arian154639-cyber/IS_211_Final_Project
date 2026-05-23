@@ -148,5 +148,5 @@ def delete_controller(post_id):
 
     return redirect('/dashboard')
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run()
